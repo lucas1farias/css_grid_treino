@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Treino grid css - v1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: white;
+        text-shadow: 0 0 10px white;
+        position: relative;
+      }
+
+      .window-properties {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        font-size: 2rem;
+        text-shadow: 0 0 10px white;
+        color: white;
+      }
+
+      main {
+        display: grid;
+        /* Comandos p/ ativar os grids */
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+        height: 100vh;
+      }
+
+      /* 
+      section estava aqui, mas foi retirado
+       */
+      div,
+      header,
+      nav,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      header {
+        background-color: orangered;
+      }
+      nav {
+        background-color: crimson;
+      }
+      section {
+        background-color: #222;
+      }
+      footer {
+        background-color: dodgerblue;
+      }
+
+      header {
+        height: 70px;
+        grid-column-start: 1;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        position: fixed;
+        width: 100%;
+        z-index: 3; /* Sobrepor menu secundário na janela pequena */
+      }
+
+      nav {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        /* grid-row-start: 2; */
+        /* grid-row-end: 10; */
+        border: white solid 2px;
+        border-radius: 1rem;
+        position: fixed;
+        height: 60vh;
+        width: 100px;
+        z-index: 2; /* Sobrepor conteúdo do corpo em janela pequena */
+        margin: .5rem .5rem;
+      }
+
+      nav li {
+        list-style: none;
+        position: absolute;
+        margin-top: 25%;
+      }
+
+      nav li:nth-child(1) {
+        top: 0px;
+      }
+      nav li:nth-child(2) {
+        top: 50px;
+      }
+      nav li:nth-child(3) {
+        top: 100px;
+      }
+      nav li:nth-child(4) {
+        top: 150px;
+      }
+      nav li:nth-child(5) {
+        top: 200px;
+      }
+      nav li:nth-child(6) {
+        top: 250px;
+      }
+      nav li:nth-child(7) {
+        top: 300px;
+      }
+
+      nav li a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* 
+      Retira-se "row" (vertical) quando não se sabe quanto conteúdo de corpo haverá no html 
+      Se não for retirado, os conteúdos add poderão sobrepor outras áreas (ex: footer, que vêm abaixo)
+      Uma altura pode ser configurada p/ especular o tamanho do corpo, ou tag dentro dele
+      */
+      section {
+        height: 1200px;
+        /* grid-row-start: 2; */
+        /* grid-row-end: 10; */
+        grid-column-start: 3;
+        grid-column-end: 13;
+        z-index: 1;
+        margin-top: 5rem;
+      }
+
+      /* Retira-se "row" (vertical) quando não se sabe quanto conteúdo de corpo sob este elemento estará no html */
+      footer {
+        height: 400px;
+        /* grid-row-start: 10; */
+        /* grid-row-end: 13; */
+        grid-column-start: 1;
+        grid-column-end: 13;
+      }
+
+      /* Enquanto a janela for < 770px */
+      @media (max-width: 770px) {
+        header {
+          display: none;
+        }
+        nav {
+          grid-row-start: 1;
+        }
+        section {
+          grid-row-start: 1;
+        }
+      }
+
+      @media (min-width: 770px) {
+        nav li {
+          display: none;
+        }
+        nav {
+          background-color: transparent;
+          border: none;
+        }
+      }
+
+      header li {
+        list-style: none;
+        border: white solid 1px;
+        display: inline-block;
+        position: relative;
+        left: -80px;
+        border-radius: 1rem;
+        padding: 0 0.5rem;
+      }
+
+      header li.separated {
+        background-color: blue;
+        position: relative;
+        left: 250px;
+        transition: ease-in-out 1s;
+      }
+
+      section p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        border: white solid 1px;
+        margin: 1rem 0;
+        width: 50%;
+        position: relative;
+        left: 15%;
+        color: black;
+        font-weight: bold;
+      }
+
+      /* Enquanto a janela for < 1270px */
+      @media (max-width: 1270px) {
+        header li {
+          left: 2px;
+        }
+        header li.separated {
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header class="tag">
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+          <li>Item 5</li>
+          <li class="separated">Item 6</li>
+          <li class="separated">Item 7</li>
+        </ul>
+      </header>
+      <nav class="tag">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+        <li><a href="#">Item 5</a></li>
+        <li><a href="#">Item 6</a></li>
+        <li><a href="#">Item 7</a></li>
+      </nav>
+      <section class="tag this-section">
+        <!-- Tags criadas via JS document.createElement -->
+        <!-- <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+      <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+      <p></p><p></p><p></p><p></p> -->
+      </section>
+      <footer class="tag">Footer</footer>
+      <div class="window-properties"></div>
+    </main>
+
+    <script>
+      let windowWH = document.querySelector('.window-properties')
+      setInterval(() => {
+        let width  = window.innerWidth || document.documentElement.clientWidth || 
+        document.body.clientWidth;
+        let height = window.innerHeight|| document.documentElement.clientHeight|| 
+        document.body.clientHeight;
+        windowWH.innerHTML = `${width}, ${height}`
+      , 1})
+    </script>
+
+    <script>
+      document.body.style.backgroundColor = '#222'
+
+      // let tagsP = document.querySelectorAll('p')
+      let inksForTagsP = []
+
+      function char() {
+        let chars = 'abcdef'
+        let numbers = '0123456789'
+        let hexadecimal = []
+        
+        // Passar os conteúdos nas vars no topo desta função p/ o array no escopo dos loops
+        // Se isso fosse feito manualmente, ao salvar, o array formataria uma string por linha (não desejado)
+        for (let index of chars) {
+          hexadecimal.push(index)
+        }
+        
+        for (let index of numbers) {
+          hexadecimal.push(index)
+        }
+
+        return hexadecimal[Math.floor(Math.random() * (hexadecimal.length - 0) + 0)]
+      }
+
+      function rgbHexa() {
+        return `#${char()}${char()}${char()}${char()}${char()}${char()}`
+      }
+
+      // tag que receberá as tags p
+      const sectionTag = document.querySelector('.this-section')
+
+      // Criação dos elementos via loop e indexação
+      for (i = 1; i < 20; i++) {
+        let newTagP = document.createElement('p')
+        sectionTag.appendChild(newTagP)
+      }
+
+      // Captura dos elementos p criados
+      let tagsP = document.querySelectorAll('p')
+
+      // Inserindo num array uma cor hexadecimal p/ uso abaixo
+      for (i = 0; i < tagsP.length; i++) {
+        inksForTagsP.push(rgbHexa())
+      }
+
+      // Atribuindo propriedades a todos os elementos "p" de forma dinâmica
+      tagsP.forEach(function (p, index) {
+        p.innerHTML = inksForTagsP[index]
+        p.style.backgroundColor = inksForTagsP[index]
+        // p.style.borderRadius = '1rem'
+        // p.style.width = '50%'
+        // p.style.position = 'relative'
+        // p.style.left = '25%'
+      })
+    </script>
+  </body>
+</html>
