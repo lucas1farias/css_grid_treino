@@ -1,5 +1,4 @@
 # css_grid_treino (Português)
-Portuguese
 Simulação de um template simples usando Media Queries para simular responsividade
 
 <h4>Detalhes</h4>
