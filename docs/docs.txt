@@ -1,0 +1,62 @@
+
+
+# a_a: Formatação inicial
+1) Reseta configurações iniciais presentes na maioria dos
+navegadores
+
+# a_b: Exibir dimensões da janela no HTML
+1) Tag span que servirá para mostrar dimensões da janela em
+tempo real, para evitar ter que abrir o console (o que 
+interfere ver dimensões de largura completa)
+2) Essa tag span se relaciona diretamente com uma tag script,
+que coleta os dados e os atualizada via "setInterval"
+3) Essa tag têm css
+
+# a_c: Configuração da tag NAV para janela pequena
+1) Um HTML é feito da janela menor para a janela maior
+2) A tag nav é escolhida como a tag para a janela pequena,
+enquanto a tag header será usada para quando a janela for maior
+3) [MQ1] Largura da janela alcança 670px: tag nav é escondida,
+o que implica dizer, automaticamente que, ela é visível quando
+a largura da janela é menor que 670px 
+
+# a_d: Configuração da tag HEADER para janela média/grande
+1) A tag vai se modificando conforma a largura da janela aumenta
+2) A tag surge quando a largura da janela alcança 670px
+3) [MQ2] Largura da janela menor que 670px: tag header some,
+o que implica dizer, automaticamente que, ela é visível quando a
+largura da janela é maior que 670px
+4) [MQ3] Largura da janela alcança 770px: Alterar o tamanho das
+letras para melhor visibilidade
+5) [MQ4] Largura da janela alcança 1200px: Deslocar os 5 itens
++ a <- e deslocar os itens 6 e 7 + a -> 
+
+# a_e: Adicionar tags div para agrupar cores em uma seção
+1) Criação de várias tags via JS e inserção de um texto código
+hexadecimal no texto interno de cada tag, e esse código é 
+aplicado como cor de fundo em cada tag (que são divs). Para
+mais informações, ver a tag "scripts" relacionada
+
+# a_f: Inserção da tag footer
+1) A partir da tela inicial (500, 648) a tag é ajustada, mas
+conforme a largura da janela aumenta, é preciso ser alterado
+em [MQ1] e [MQ2] novamente, pois seu local altera na tela
+
+[MQ5] 
+# a_g: Ajustes no grid de cores e no rodapé
+1) Largura da janela alcança 576px
+2) Grids convertidos para grupos de 3 e ajustados p/ ->
+
+[MQ6] 
+# a_g: Ajustes no grid de cores e no rodapé
+1) Largura da janela alcança 670px, que é quando há a
+visibilidade da tag do cabeçalho (menu maior)
+2) Grids convertidos para grupos de 5, a ajustes p/ centralizar
+
+[MQ7 ou MQ11] 
+# a_h: Ajuste na tag header conforme a altura da janela diminui
+1) Altura da tela alcança as regressões: 
+415px 175px 125px 95px 75px
+2) manter a tag header no topo da janela conforme a página perde
+altura, até chegar num ponto que não pode mais ser exibida e é
+escondida
