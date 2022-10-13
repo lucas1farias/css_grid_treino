@@ -45,72 +45,11 @@
       <div>Footer</div>
     </footer>
     
-    <script>
-      /* # a_b */
-      let windowWH = document.querySelector('.window-properties')
-      setInterval(() => {
-        let width  = window.innerWidth || document.documentElement.clientWidth || 
-        document.body.clientWidth;
-        let height = window.innerHeight|| document.documentElement.clientHeight|| 
-        document.body.clientHeight;
-        windowWH.innerHTML = `${width}, ${height}`
-      , 1})
-    </script>
+    <!-- # a_b -->
+    <script src="js/page_window_properties.js"></script>
     
     <!-- # a_e -->
-    <script>
-      let inksForTagsDiv = []
-
-      function char() {
-        let chars = 'abcdef'
-        let numbers = '0123456789'
-        let hexadecimal = []
-        
-        // Passar os conteúdos nas vars no topo desta função p/ o array no escopo dos loops
-        // Se isso fosse feito manualmente, ao salvar, o array formataria uma string por linha (não desejado)
-        for (let index of chars) {
-          hexadecimal.push(index)
-        }
-        
-        for (let index of numbers) {
-          hexadecimal.push(index)
-        }
-
-        return hexadecimal[Math.floor(Math.random() * (hexadecimal.length - 0) + 0)]
-      }
-
-      function rgbHexa() {
-        return `#${char()}${char()}${char()}${char()}${char()}${char()}`
-      }
-
-      // tag que receberá as tags p
-      const sectionTag = document.querySelector('.section-colors')
-
-      // Criação dos elementos via loop e indexação
-      for (i = 1; i < 21; i++) {
-        let newTagDiv = document.createElement('div')
-        newTagDiv.className = 'color-code'
-        sectionTag.appendChild(newTagDiv)
-      }
-
-      // Captura dos elementos p criados
-      let tagsDiv = document.querySelectorAll('.color-code')
-
-      // Inserindo num array uma cor hexadecimal p/ uso abaixo
-      for (i = 0; i < tagsDiv.length; i++) {
-        inksForTagsDiv.push(rgbHexa())
-      }
-
-      // Atribuindo propriedades a todos os elementos "p" de forma dinâmica
-      tagsDiv.forEach(function (eachDiv, index) {
-        eachDiv.innerHTML = inksForTagsDiv[index]
-        eachDiv.style.backgroundColor = inksForTagsDiv[index]
-      })
-      
-      tagsDiv.forEach(index => {
-        console.log(index.innerHTML)
-      })
-    </script>
+    <script src="js/colors_and_tags.js"></script>
     
   </main>
 </body>
